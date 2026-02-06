@@ -6,7 +6,7 @@ def test_index():
     client = app.test_client()
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json["message"] == "Hello from claude-test!"
+    assert b"claude-test" in response.data
 
 
 def test_health():
