@@ -9,6 +9,22 @@ def test_index():
     assert b"claude-test" in response.data
 
 
+def test_dashboard():
+    app = create_app()
+    client = app.test_client()
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    assert b"Dashboard" in response.data
+
+
+def test_settings():
+    app = create_app()
+    client = app.test_client()
+    response = client.get("/settings")
+    assert response.status_code == 200
+    assert b"Settings" in response.data
+
+
 def test_health():
     app = create_app()
     client = app.test_client()
