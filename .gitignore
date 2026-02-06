@@ -9,5 +9,22 @@ wheels/
 # Virtual environments
 .venv
 
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing / linting caches
+.pytest_cache/
+.ruff_cache/
+
+# SQLite database
+instance/
+
 # Credentials
 cctest
+.env
+
+# Claude Code
+.claude/
