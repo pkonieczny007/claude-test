@@ -4,14 +4,17 @@
 
 {% block content %}
     <h1>Settings</h1>
+    {% if saved %}
+        <p class="success">Settings saved!</p>
+    {% endif %}
     <form method="post">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter username">
+        <input type="text" id="username" name="username" placeholder="Enter username" value="{{ user.username if user else '' }}">
 
         <label for="theme">Theme</label>
         <select id="theme" name="theme">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
+            <option value="light" {{ 'selected' if not user or user.theme == 'light' }}>Light</option>
+            <option value="dark" {{ 'selected' if user and user.theme == 'dark' }}>Dark</option>
         </select>
 
         <button type="submit">Save</button>
